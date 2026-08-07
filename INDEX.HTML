@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Result Portal </title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    width:400px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,.15);
+}
+
+h2{
+    text-align:center;
+    color:#003366;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    border:none;
+    background:#003366;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+#error{
+    color:red;
+    text-align:center;
+    margin-top:10px;
+}
+
+#resultsPage{
+    display:none;
+}
+
+.result-btn{
+    margin-top:12px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div id="loginPage">
+
+<h2>Student Login</h2>
+
+<label>Roll Number</label>
+<input
+type="text"
+id="rollno"
+placeholder="Enter Roll Number">
+
+<label>Password</label>
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="login()">
+View Results
+</button>
+
+<p id="error"></p>
+
+</div>
+
+<div id="resultsPage">
+
+<h2>Select Result</h2>
+
+<p style="text-align:center;">
+Choose which result to print or save.
+</p>
+
+<button class="result-btn"
+onclick="window.location.href='first-semester.html'">
+First Semester
+</button>
+
+<button class="result-btn"
+onclick="window.location.href='second-semester.html'">
+Second Semester
+</button>
+
+<button class="result-btn"
+onclick="window.location.href='second-semester-makeup.html'">
+Second Semester Make-Up
+</button>
+
+<button class="result-btn"
+onclick="window.location.href='part-registration-sem1.html'">
+Part Registration Sem 1
+</button>
+
+<button class="result-btn"
+onclick="window.location.href='summer-term.html'">
+Summer Term
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+const roll=document.getElementById("rollno").value.trim();
+
+const password=document.getElementById("password").value;
+
+if(
+roll==="20241CSG0056" &&
+password==="18022007"
+){
+
+document.getElementById("loginPage").style.display="none";
+
+document.getElementById("resultsPage").style.display="block";
+
+}
+else{
+
+document.getElementById("error").innerHTML=
+"Invalid Roll Number or Password";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
