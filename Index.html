@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Result Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 400px;
+            max-width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button,
+        .result-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            background: #003366;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        button:hover,
+        .result-btn:hover {
+            background: #0055aa;
+        }
+
+        #error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #resultsPage {
+            display: none;
+        }
+
+        .result-btn {
+            text-decoration: none;
+            margin-top: 12px;
+        }
+
+        .logout {
+            background: #777;
+        }
+
+        .logout:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LOGIN PAGE -->
+
+        <div id="loginPage">
+
+            <h2>Student Login</h2>
+
+            <label for="rollno">Roll Number</label>
+
+            <input
+                type="text"
+                id="rollno"
+                placeholder="Enter Roll Number"
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+            >
+
+            <button type="button" onclick="login()">
+                View Results
+            </button>
+
+            <p id="error"></p>
+
+        </div>
+
+
+        <!-- RESULTS PAGE -->
+
+        <div id="resultsPage">
+
+            <h2>Select Result</h2>
+
+            <p style="text-align:center;">
+                Choose your result
+            </p>
+
+            <a
+                class="result-btn"
+                href="FIRST%20SEMESTER.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                First Semester
+            </a>
+
+            <a
+                class="result-btn"
+                href="SECOND%20SEMESTER.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Second Semester
+            </a>
+
+            <a
+                class="result-btn"
+                href="SECOND%20SEMESTER%20MAKE-UP%20EXAMINATION.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Second Semester Make-Up
+            </a>
+
+            <a
+                class="result-btn"
+                href="PART%20REGISTRATION%20SEMESTER%201.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Part Registration Sem 1
+            </a>
+
+            <a
+                class="result-btn"
+                href="SUMMER%20TERM.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Summer Term
+            </a>
+
+            <button
+                type="button"
+                class="logout"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function login() {
+
+            const roll =
+                document.getElementById("rollno").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            if (
+                roll === "20241CSG0056" &&
+                password === "18022007"
+            ) {
+
+                document.getElementById("loginPage").style.display = "none";
+
+                document.getElementById("resultsPage").style.display = "block";
+
+                document.getElementById("error").innerHTML = "";
+
+            } else {
+
+                document.getElementById("error").innerHTML =
+                    "Invalid Roll Number or Password";
+
+            }
+        }
+
+
+        function logout() {
+
+            document.getElementById("resultsPage").style.display = "none";
+
+            document.getElementById("loginPage").style.display = "block";
+
+            document.getElementById("rollno").value = "";
+
+            document.getElementById("password").value = "";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
